@@ -1,9 +1,9 @@
 <rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>自娱自乐</title>
-    <link>https://amndi.cn/</link>
+    <link>https://blog.amndi.cn/</link>
     <description>自娱自乐</description>
     <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Jul 2024 00:55:32 &#43;0800</lastBuildDate>
-      <atom:link href="https://amndi.cn/index.xml" rel="self" type="application/rss+xml" />
+      <atom:link href="https://blog.amndi.cn/index.xml" rel="self" type="application/rss+xml" />
     </channel>
 </rss>
