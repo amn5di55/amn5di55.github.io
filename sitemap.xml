@@ -2,8 +2,9 @@
   xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   ><url>
-      <loc>https://blog.amndi.cn/posts/</loc><lastmod>2024-07-02T00:55:32&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
-      <loc>https://blog.amndi.cn/</loc><lastmod>2024-07-02T00:55:32&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
+      <loc>https://blog.amndi.cn/posts/</loc><lastmod>2024-07-02T01:39:17&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
+      <loc>https://blog.amndi.cn/posts/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%981/</loc><lastmod>2024-07-02T01:39:17&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
+      <loc>https://blog.amndi.cn/</loc><lastmod>2024-07-02T01:39:17&#43;08:00</lastmod><changefreq>daily</changefreq><priority>1</priority></url><url>
       <loc>https://blog.amndi.cn/categories/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url>
       <loc>https://blog.amndi.cn/collections/</loc><changefreq>daily</changefreq><priority>0.5</priority></url><url>
       <loc>https://blog.amndi.cn/tags/</loc><changefreq>daily</changefreq><priority>0.5</priority></url></urlset>
