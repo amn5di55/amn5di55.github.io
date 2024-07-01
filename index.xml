@@ -3,15 +3,7 @@
     <title>自娱自乐</title>
     <link>https://blog.amndi.cn/</link>
     <description>自己发自己看</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 02 Jul 2024 01:39:17 &#43;0800</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language>
       <atom:link href="https://blog.amndi.cn/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-  <title>测试文章不显示问题1</title>
-  <link>https://blog.amndi.cn/posts/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%981/</link>
-  <pubDate>Tue, 02 Jul 2024 01:39:17 &#43;0800</pubDate>
-  <author>admin</author>
-  <guid>https://blog.amndi.cn/posts/%E6%B5%8B%E8%AF%95%E6%96%87%E7%AB%A0%E4%B8%8D%E6%98%BE%E7%A4%BA%E9%97%AE%E9%A2%981/</guid>
-  <description><![CDATA[<p>此处内容将会出现在摘要（summary）里</p>]]></description>
-</item>
-</channel>
+    </channel>
 </rss>
