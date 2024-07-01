@@ -3,5 +3,13 @@
     <title>Tags - 标签 - 自娱自乐</title>
     <link>https://blog.amndi.cn/tags/</link>
     <description>Tags - 标签 | 自娱自乐</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><atom:link href="https://blog.amndi.cn/tags/" rel="self" type="application/rss+xml" /></channel>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 23 May 2021 04:27:00 &#43;0000</lastBuildDate><atom:link href="https://blog.amndi.cn/tags/" rel="self" type="application/rss+xml" /><item>
+  <title>Docker</title>
+  <link>https://blog.amndi.cn/tags/docker/</link>
+  <pubDate>Sun, 23 May 2021 04:27:00 &#43;0000</pubDate>
+  <author>admin</author>
+  <guid>https://blog.amndi.cn/tags/docker/</guid>
+  <description><![CDATA[]]></description>
+</item>
+</channel>
 </rss>

@@ -1,0 +1,15 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Docker - 标签 - 自娱自乐</title>
+    <link>https://blog.amndi.cn/tags/docker/</link>
+    <description>Docker - 标签 | 自娱自乐</description>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Sun, 23 May 2021 04:27:00 &#43;0000</lastBuildDate><atom:link href="https://blog.amndi.cn/tags/docker/" rel="self" type="application/rss+xml" /><item>
+  <title>docker相关</title>
+  <link>https://blog.amndi.cn/posts/4/</link>
+  <pubDate>Sun, 23 May 2021 04:27:00 &#43;0000</pubDate>
+  <author>admin</author>
+  <guid>https://blog.amndi.cn/posts/4/</guid>
+  <description><![CDATA[如下是详细错误内容，我猜你的跟我的应该一毛一样： $ docker-compose up ERROR: Couldn&rsquo;t connect to Docker daemon at http+docker://localunixsocket - is it running? If it&rsquo;s at a non-standard location, specify the URL with the DOCKER_HOST environment variable. 导致这个问题的原因实在多，所以把解]]></description>
+</item>
+</channel>
+</rss>
