@@ -3,9 +3,17 @@
     <title>自娱自乐</title>
     <link>https://blog.amndi.cn/</link>
     <description>自己发自己看</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Jul 2024 22:08:38 &#43;0800</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Tue, 23 Jul 2024 22:37:58 &#43;0800</lastBuildDate>
       <atom:link href="https://blog.amndi.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
+  <title>博客更新记录</title>
+  <link>https://blog.amndi.cn/posts/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/</link>
+  <pubDate>Tue, 23 Jul 2024 22:37:58 &#43;0800</pubDate>
+  <author>admin</author>
+  <guid>https://blog.amndi.cn/posts/%E5%8D%9A%E5%AE%A2%E6%9B%B4%E6%96%B0%E8%AE%B0%E5%BD%95/</guid>
+  <description><![CDATA[]]></description>
+</item>
+<item>
   <title>Js生成btc地址</title>
   <link>https://blog.amndi.cn/posts/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80/</link>
   <pubDate>Tue, 23 Jul 2024 22:08:38 &#43;0800</pubDate>
@@ -76,14 +84,6 @@
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/12/</guid>
   <description><![CDATA[找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错 情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成 这种情况]]></description>
-</item>
-<item>
-  <title>Nginx反代二级域名</title>
-  <link>https://blog.amndi.cn/posts/11/</link>
-  <pubDate>Mon, 07 Jun 2021 18:07:00 &#43;0000</pubDate>
-  <author>admin</author>
-  <guid>https://blog.amndi.cn/posts/11/</guid>
-  <description><![CDATA[第一步解析A记录 第二步 在 Nginx 中完成反向代理配置 编辑 Nginx 配置文件，在 nginx.conf 文件中新增server节点如下（通过vi /etc/nginx/nginx.c]]></description>
 </item>
 </channel>
 </rss>
