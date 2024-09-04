@@ -35,7 +35,11 @@
   <pubDate>Mon, 20 Sep 2021 17:36:59 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/20/</guid>
-  <description><![CDATA[拉取指定分支代码解决方案： 以拉取develop分支的代码为例， 要拉取其余分支代码类似操作 1.使用git命令拉取 命令：git clone -b develop XXX 其中dev]]></description>
+  <description><![CDATA[<p>拉取指定分支代码解决方案：</p>
+<p>以拉取develop分支的代码为例， 要拉取其余分支代码类似操作</p>
+<p>1.使用git命令拉取</p>
+<p>命令：git clone -b develop XXX</p>
+<p>其中develop就是分支的名称</p>]]></description>
 </item>
 <item>
   <title>JS跳出循环的三种方法</title>
@@ -51,7 +55,40 @@
   <pubDate>Mon, 23 Aug 2021 03:48:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/18/</guid>
-  <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count++; console.log(&#39;每（&#39;+timeout+&#39;）秒自动]]></description>
+  <description><![CDATA[<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">timeout</span><span class="o">=</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Set timeout (Second):&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">count</span><span class="o">=</span><span class="mi">0</span>
+</span></span><span class="line"><span class="cl"><span class="nx">current</span><span class="o">=</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">timeout</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(</span><span class="s1">&#39;reload()&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="o">*</span><span class="nx">timeout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">else</span>
+</span></span><span class="line"><span class="cl"><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">current</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">reload</span><span class="p">(){</span>
+</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(</span><span class="s1">&#39;reload()&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="o">*</span><span class="nx">timeout</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;每（&#39;</span><span class="o">+</span><span class="nx">timeout</span><span class="o">+</span><span class="s1">&#39;）秒自动刷新,刷新次数：&#39;</span><span class="o">+</span><span class="nx">count</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">=</span><span class="s1">&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;</span><span class="o">+</span><span class="nx">current</span><span class="o">+</span><span class="s1">&#39;\&#39;/&gt;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">+=</span><span class="s1">&#39;&lt;/frameset&gt;&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kd">with</span><span class="p">(</span><span class="nb">document</span><span class="p">){</span><span class="nx">write</span><span class="p">(</span><span class="nx">fr4me</span><span class="p">);</span><span class="k">void</span><span class="p">(</span><span class="nx">close</span><span class="p">())};</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pr]]></description>
 </item>
 <item>
   <title>powershell窗口不自动关闭</title>
@@ -59,7 +96,8 @@
   <pubDate>Sat, 21 Aug 2021 19:38:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/17/</guid>
-  <description><![CDATA[read-host 类似cmd的pause]]></description>
+  <description><![CDATA[<p>read-host
+类似cmd的pause</p>]]></description>
 </item>
 <item>
   <title>千万别设置弱密码！！！</title>
@@ -67,7 +105,11 @@
   <pubDate>Thu, 19 Aug 2021 00:13:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/16/</guid>
-  <description><![CDATA[https://www.cnblogs.com/meetrice/p/5238114.html]]></description>
+  <description><![CDATA[<p><img loading="lazy" src="image.png" alt="alt text" srcset="image.png?size=small, image.png?size=medium 1.5x, image.png?size=large 2x" data-title="alt text" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<p><img loading="lazy" src="image-1.png" alt="alt text" srcset="image-1.png?size=small, image-1.png?size=medium 1.5x, image-1.png?size=large 2x" data-title="alt text" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
+<blockquote>
+<p><a href="https://www.cnblogs.com/meetrice/p/5238114.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.cnblogs.com/meetrice/p/5238114.html</a></p>
+</blockquote>]]></description>
 </item>
 <item>
   <title>青龙运行shell Exec format error</title>
@@ -75,7 +117,7 @@
   <pubDate>Sat, 24 Jul 2021 06:31:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/13/</guid>
-  <description><![CDATA[You need a shebang line if the executable file cannot be run natively by the kernel. The kernel can only run machine code in a specific format (ELF on most Unix variants), or sometimes other formats (e.g. on Linux you can register executable formats through binfmt_misc). If the executable file needs an interpreter then the kernel needs to know which interpreter to call. That&rsquo;s what the shebang line is for.]]></description>
+  <description><![CDATA[<p>You need a shebang line if the executable file cannot be run natively by the kernel. The kernel can only run machine code in a specific format (ELF on most Unix variants), or sometimes other formats (e.g. on Linux you can register executable formats through binfmt_misc). If the executable file needs an interpreter then the kernel needs to know which interpreter to call. That&rsquo;s what the shebang line is for.</p>]]></description>
 </item>
 <item>
   <title>面板504错误</title>
@@ -83,7 +125,10 @@
   <pubDate>Tue, 29 Jun 2021 01:38:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/12/</guid>
-  <description><![CDATA[找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错 情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成 这种情况]]></description>
+  <description><![CDATA[<p>找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错
+情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成</p>
+<pre><code>   这种情况下导致fastcgi进程被挂起，如果fastcgi服务队这个挂起处理不是很好的话，就可能提示“504 Gateway Time-out”错误。
+</code></pr]]></description>
 </item>
 </channel>
 </rss>
