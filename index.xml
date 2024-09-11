@@ -88,7 +88,11 @@
 </span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">=</span><span class="s1">&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;</span><span class="o">+</span><span class="nx">current</span><span class="o">+</span><span class="s1">&#39;\&#39;/&gt;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">+=</span><span class="s1">&#39;&lt;/frameset&gt;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">with</span><span class="p">(</span><span class="nb">document</span><span class="p">){</span><span class="nx">write</span><span class="p">(</span><span class="nx">fr4me</span><span class="p">);</span><span class="k">void</span><span class="p">(</span><span class="nx">close</span><span class="p">())};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pr]]></description>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><a href="https://blog.csdn.net/samt007/article/details/80014071"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/samt007/article/details/80014071</a></p>
+</blockquote>]]></description>
 </item>
 <item>
   <title>powershell窗口不自动关闭</title>
@@ -128,7 +132,8 @@
   <description><![CDATA[<p>找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错
 情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成</p>
 <pre><code>   这种情况下导致fastcgi进程被挂起，如果fastcgi服务队这个挂起处理不是很好的话，就可能提示“504 Gateway Time-out”错误。
-</code></pr]]></description>
+</code></pre>
+<p>情况一解决办法：</p>]]></description>
 </item>
 </channel>
 </rss>

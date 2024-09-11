@@ -54,7 +54,11 @@
 </span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">=</span><span class="s1">&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;</span><span class="o">+</span><span class="nx">current</span><span class="o">+</span><span class="s1">&#39;\&#39;/&gt;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">+=</span><span class="s1">&#39;&lt;/frameset&gt;&#39;</span><span class="p">;</span>
 </span></span><span class="line"><span class="cl"><span class="kd">with</span><span class="p">(</span><span class="nb">document</span><span class="p">){</span><span class="nx">write</span><span class="p">(</span><span class="nx">fr4me</span><span class="p">);</span><span class="k">void</span><span class="p">(</span><span class="nx">close</span><span class="p">())};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pr]]></description>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p><a href="https://blog.csdn.net/samt007/article/details/80014071"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/samt007/article/details/80014071</a></p>
+</blockquote>]]></description>
 </item>
 <item>
   <title>powershell窗口不自动关闭</title>
@@ -94,7 +98,8 @@
   <description><![CDATA[<p>找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错
 情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成</p>
 <pre><code>   这种情况下导致fastcgi进程被挂起，如果fastcgi服务队这个挂起处理不是很好的话，就可能提示“504 Gateway Time-out”错误。
-</code></pr]]></description>
+</code></pre>
+<p>情况一解决办法：</p>]]></description>
 </item>
 <item>
   <title>Nginx反代二级域名</title>
@@ -137,7 +142,32 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span></code></pr]]></description>
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">_options</span> <span class="o">=</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 色带HSL饱和度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorSaturation</span><span class="o">:</span> <span class="s2">&#34;80%&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 色带HSL亮度量
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorBrightness</span><span class="o">:</span> <span class="s2">&#34;60%&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 带状颜色不透明度
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorAlpha</span><span class="o">:</span> <span class="mf">0.65</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在HSL颜色空间中循环显示颜色的速度有多快
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorCycleSpeed</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 从哪一侧开始Y轴 (top|min, middle|center, bottom|max, random)
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">verticalPosition</span><span class="o">:</span> <span class="s2">&#34;center&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 到达屏幕另一侧的速度有多快
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">horizontalSpeed</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 在任何给定时间，屏幕上会保留多少条带
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ribbonCount</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 添加笔划以及色带填充颜色
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">strokeSize</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 通过页面滚动上的因子垂直移动色带
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">parallaxAmount</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="c1">// 随着时间的推移，为每个功能区添加动画效果
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">animateSections</span><span class="o">:</span> <span class="kc">true</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p><strong>参数设置2</strong></p>]]></description>
 </item>
 <item>
   <title>docker相关</title>
