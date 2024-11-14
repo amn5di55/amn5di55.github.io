@@ -3,17 +3,9 @@
     <title>自娱自乐</title>
     <link>https://blog.amndi.cn/</link>
     <description>自己发自己看</description>
-    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Thu, 14 Nov 2024 13:43:30 &#43;0800</lastBuildDate>
+    <generator>Hugo -- gohugo.io</generator><language>zh-CN</language><lastBuildDate>Wed, 24 Jul 2024 03:16:27 &#43;0800</lastBuildDate>
       <atom:link href="https://blog.amndi.cn/index.xml" rel="self" type="application/rss+xml" />
     <item>
-  <title>测试发布</title>
-  <link>https://blog.amndi.cn/posts/%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B8%83/</link>
-  <pubDate>Thu, 14 Nov 2024 13:43:30 &#43;0800</pubDate>
-  <author>admin</author>
-  <guid>https://blog.amndi.cn/posts/%E6%B5%8B%E8%AF%95%E5%8F%91%E5%B8%83/</guid>
-  <description><![CDATA[<p>此处内容将会出现在摘要（summary）里</p>]]></description>
-</item>
-<item>
   <title>Screen</title>
   <link>https://blog.amndi.cn/posts/screen/</link>
   <pubDate>Wed, 24 Jul 2024 03:16:27 &#43;0800</pubDate>
@@ -84,6 +76,14 @@
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/16/</guid>
   <description><![CDATA[https://www.cnblogs.com/meetrice/p/5238114.html]]></description>
+</item>
+<item>
+  <title>青龙运行shell Exec format error</title>
+  <link>https://blog.amndi.cn/posts/13/</link>
+  <pubDate>Sat, 24 Jul 2021 06:31:00 &#43;0000</pubDate>
+  <author>admin</author>
+  <guid>https://blog.amndi.cn/posts/13/</guid>
+  <description><![CDATA[You need a shebang line if the executable file cannot be run natively by the kernel. The kernel can only run machine code in a specific format (ELF on most Unix variants), or sometimes other formats (e.g. on Linux you can register executable formats through binfmt_misc). If the executable file needs an interpreter then the kernel needs to know which interpreter to call. That&rsquo;s what the shebang line is for.]]></description>
 </item>
 </channel>
 </rss>
