@@ -9,11 +9,7 @@
   <pubDate>Mon, 20 Sep 2021 17:36:59 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/20/</guid>
-  <description><![CDATA[<p>拉取指定分支代码解决方案：</p>
-<p>以拉取develop分支的代码为例， 要拉取其余分支代码类似操作</p>
-<p>1.使用git命令拉取</p>
-<p>命令：git clone -b develop XXX</p>
-<p>其中develop就是分支的名称</p>]]></description>
+  <description><![CDATA[拉取指定分支代码解决方案： 以拉取develop分支的代码为例， 要拉取其余分支代码类似操作 1.使用git命令拉取 命令：git clone -b develop XXX 其中dev]]></description>
 </item>
 <item>
   <title>chrome浏览器网页刷新的console代码</title>
@@ -21,44 +17,7 @@
   <pubDate>Mon, 23 Aug 2021 03:48:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/18/</guid>
-  <description><![CDATA[<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="nx">timeout</span><span class="o">=</span><span class="nx">prompt</span><span class="p">(</span><span class="s2">&#34;Set timeout (Second):&#34;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">count</span><span class="o">=</span><span class="mi">0</span>
-</span></span><span class="line"><span class="cl"><span class="nx">current</span><span class="o">=</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="k">if</span><span class="p">(</span><span class="nx">timeout</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(</span><span class="s1">&#39;reload()&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="o">*</span><span class="nx">timeout</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="k">else</span>
-</span></span><span class="line"><span class="cl"><span class="nx">location</span><span class="p">.</span><span class="nx">replace</span><span class="p">(</span><span class="nx">current</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">reload</span><span class="p">(){</span>
-</span></span><span class="line"><span class="cl"><span class="nx">setTimeout</span><span class="p">(</span><span class="s1">&#39;reload()&#39;</span><span class="p">,</span><span class="mi">1000</span><span class="o">*</span><span class="nx">timeout</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">count</span><span class="o">++</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;每（&#39;</span><span class="o">+</span><span class="nx">timeout</span><span class="o">+</span><span class="s1">&#39;）秒自动刷新,刷新次数：&#39;</span><span class="o">+</span><span class="nx">count</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">=</span><span class="s1">&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;</span><span class="o">+</span><span class="nx">current</span><span class="o">+</span><span class="s1">&#39;\&#39;/&gt;&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="nx">fr4me</span><span class="o">+=</span><span class="s1">&#39;&lt;/frameset&gt;&#39;</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="kd">with</span><span class="p">(</span><span class="nb">document</span><span class="p">){</span><span class="nx">write</span><span class="p">(</span><span class="nx">fr4me</span><span class="p">);</span><span class="k">void</span><span class="p">(</span><span class="nx">close</span><span class="p">())};</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
-</div>
-</div><blockquote>
-<p><a href="https://blog.csdn.net/samt007/article/details/80014071"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/samt007/article/details/80014071</a></p>
-</blockquote>]]></description>
+  <description><![CDATA[1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count++; console.log(&#39;每（&#39;+timeout+&#39;）秒自动]]></description>
 </item>
 <item>
   <title>powershell窗口不自动关闭</title>
@@ -66,8 +25,7 @@
   <pubDate>Sat, 21 Aug 2021 19:38:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/17/</guid>
-  <description><![CDATA[<p>read-host
-类似cmd的pause</p>]]></description>
+  <description><![CDATA[read-host 类似cmd的pause]]></description>
 </item>
 <item>
   <title>千万别设置弱密码！！！</title>
@@ -75,11 +33,7 @@
   <pubDate>Thu, 19 Aug 2021 00:13:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/16/</guid>
-  <description><![CDATA[<p><img loading="lazy" src="image.png" alt="alt text" srcset="image.png?size=small, image.png?size=medium 1.5x, image.png?size=large 2x" data-title="alt text" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<p><img loading="lazy" src="image-1.png" alt="alt text" srcset="image-1.png?size=small, image-1.png?size=medium 1.5x, image-1.png?size=large 2x" data-title="alt text" style="background: url(/images/loading.min.svg) no-repeat center;" onload="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}this.dataset.lazyloaded='';" onerror="this.title=this.dataset.title;for(const i of ['style', 'data-title','onerror','onload']){this.removeAttribute(i);}"/></p>
-<blockquote>
-<p><a href="https://www.cnblogs.com/meetrice/p/5238114.html"target="_blank" rel="external nofollow noopener noreferrer">https://www.cnblogs.com/meetrice/p/5238114.html</a></p>
-</blockquote>]]></description>
+  <description><![CDATA[https://www.cnblogs.com/meetrice/p/5238114.html]]></description>
 </item>
 <item>
   <title>青龙运行shell Exec format error</title>
@@ -87,7 +41,7 @@
   <pubDate>Sat, 24 Jul 2021 06:31:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/13/</guid>
-  <description><![CDATA[<p>You need a shebang line if the executable file cannot be run natively by the kernel. The kernel can only run machine code in a specific format (ELF on most Unix variants), or sometimes other formats (e.g. on Linux you can register executable formats through binfmt_misc). If the executable file needs an interpreter then the kernel needs to know which interpreter to call. That&rsquo;s what the shebang line is for.</p>]]></description>
+  <description><![CDATA[You need a shebang line if the executable file cannot be run natively by the kernel. The kernel can only run machine code in a specific format (ELF on most Unix variants), or sometimes other formats (e.g. on Linux you can register executable formats through binfmt_misc). If the executable file needs an interpreter then the kernel needs to know which interpreter to call. That&rsquo;s what the shebang line is for.]]></description>
 </item>
 <item>
   <title>面板504错误</title>
@@ -95,11 +49,7 @@
   <pubDate>Tue, 29 Jun 2021 01:38:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/12/</guid>
-  <description><![CDATA[<p>找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错
-情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成</p>
-<pre><code>   这种情况下导致fastcgi进程被挂起，如果fastcgi服务队这个挂起处理不是很好的话，就可能提示“504 Gateway Time-out”错误。
-</code></pre>
-<p>情况一解决办法：</p>]]></description>
+  <description><![CDATA[找不到原因，初步怀疑是nginx的问题，复制一点解决方法来等下次出错 情况一：由于nginx默认的fastcgi进程响应缓冲区太小造成 这种情况]]></description>
 </item>
 <item>
   <title>Nginx反代二级域名</title>
@@ -107,9 +57,7 @@
   <pubDate>Mon, 07 Jun 2021 18:07:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/11/</guid>
-  <description><![CDATA[<p>第一步解析A记录</p>
-<p>第二步 在 Nginx 中完成反向代理配置</p>
-<p>编辑 Nginx 配置文件，在 nginx.conf 文件中新增server节点如下（通过vi /etc/nginx/nginx.conf修改）</p>]]></description>
+  <description><![CDATA[第一步解析A记录 第二步 在 Nginx 中完成反向代理配置 编辑 Nginx 配置文件，在 nginx.conf 文件中新增server节点如下（通过vi /etc/nginx/nginx.c]]></description>
 </item>
 <item>
   <title>配置动态背景记录</title>
@@ -117,57 +65,7 @@
   <pubDate>Mon, 24 May 2021 02:48:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/8/</guid>
-  <description><![CDATA[<p><strong>js中参数设置1：</strong></p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="k">this</span><span class="p">.</span><span class="nx">_options</span> <span class="o">=</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 色带HSL饱和度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorSaturation</span><span class="o">:</span> <span class="s2">&#34;80%&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 色带HSL亮度量
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorBrightness</span><span class="o">:</span> <span class="s2">&#34;60%&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 带状颜色不透明度
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorAlpha</span><span class="o">:</span> <span class="mf">0.65</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 在HSL颜色空间中循环显示颜色的速度有多快
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">colorCycleSpeed</span><span class="o">:</span> <span class="mi">6</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 从哪一侧开始Y轴 (top|min, middle|center, bottom|max, random)
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">verticalPosition</span><span class="o">:</span> <span class="s2">&#34;center&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 到达屏幕另一侧的速度有多快
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">horizontalSpeed</span><span class="o">:</span> <span class="mi">200</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 在任何给定时间，屏幕上会保留多少条带
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">ribbonCount</span><span class="o">:</span> <span class="mi">3</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 添加笔划以及色带填充颜色
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">strokeSize</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 通过页面滚动上的因子垂直移动色带
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">parallaxAmount</span><span class="o">:</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">    <span class="c1">// 随着时间的推移，为每个功能区添加动画效果
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nx">animateSections</span><span class="o">:</span> <span class="kc">true</span>
-</span></span><span class="line"><span class="cl"><span class="p">};</span></span></span></code></pre></td></tr></table>
-</div>
-</div><p><strong>参数设置2</strong></p>]]></description>
+  <description><![CDATA[js中参数设置1： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 this._options = { // 色带HSL饱和度 colorSaturation: &#34;80%&#34;, // 色带HSL亮度量 colorBrightness: &#34;60%&#34;, // 带状颜色不透明度 colorAlpha: 0.65, // 在H]]></description>
 </item>
 <item>
   <title>docker相关</title>
@@ -175,11 +73,7 @@
   <pubDate>Sun, 23 May 2021 04:27:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/4/</guid>
-  <description><![CDATA[<p>如下是详细错误内容，我猜你的跟我的应该一毛一样：</p>
-<p>$ docker-compose up</p>
-<p>ERROR: Couldn&rsquo;t connect to Docker daemon at http+docker://localunixsocket - is it running?</p>
-<p>If it&rsquo;s at a non-standard location, specify the URL with the DOCKER_HOST environment variable.</p>
-<p>导致这个问题的原因实在多，所以把解决方法一一列出。</p>]]></description>
+  <description><![CDATA[如下是详细错误内容，我猜你的跟我的应该一毛一样： $ docker-compose up ERROR: Couldn&rsquo;t connect to Docker daemon at http+docker://localunixsocket - is it running? If it&rsquo;s at a non-standard location, specify the URL with the DOCKER_HOST environment variable. 导致这个问题的原因实在多，所以把解]]></description>
 </item>
 <item>
   <title>便携小空调</title>
@@ -187,7 +81,7 @@
   <pubDate>Tue, 11 May 2021 21:35:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/3/</guid>
-  <description><![CDATA[<iframe height="800" width="100%" src="http://ac.yunyoujun.cn/"></iframe>]]></description>
+  <description><![CDATA[]]></description>
 </item>
 </channel>
 </rss>

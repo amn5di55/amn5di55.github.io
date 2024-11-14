@@ -9,11 +9,7 @@
   <pubDate>Sun, 23 May 2021 04:27:00 &#43;0000</pubDate>
   <author>admin</author>
   <guid>https://blog.amndi.cn/posts/4/</guid>
-  <description><![CDATA[<p>如下是详细错误内容，我猜你的跟我的应该一毛一样：</p>
-<p>$ docker-compose up</p>
-<p>ERROR: Couldn&rsquo;t connect to Docker daemon at http+docker://localunixsocket - is it running?</p>
-<p>If it&rsquo;s at a non-standard location, specify the URL with the DOCKER_HOST environment variable.</p>
-<p>导致这个问题的原因实在多，所以把解决方法一一列出。</p>]]></description>
+  <description><![CDATA[如下是详细错误内容，我猜你的跟我的应该一毛一样： $ docker-compose up ERROR: Couldn&rsquo;t connect to Docker daemon at http+docker://localunixsocket - is it running? If it&rsquo;s at a non-standard location, specify the URL with the DOCKER_HOST environment variable. 导致这个问题的原因实在多，所以把解]]></description>
 </item>
 </channel>
 </rss>

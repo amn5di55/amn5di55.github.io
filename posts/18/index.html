@@ -7,46 +7,9 @@
     <meta name="robots" content="noodp" />
     <title>Chrome浏览器网页刷新的console代码 - 自娱自乐</title><meta name="author" content="admin">
 <meta name="author-link" content="">
-<meta name="description" content="
-
- 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-
-
-timeout=prompt(&#34;Set timeout (Second):&#34;);
-count=0
-current=location.href;
-if(timeout&gt;0)
-setTimeout(&#39;reload()&#39;,1000*timeout);
-else
-location.replace(current);
-function reload(){
-setTimeout(&#39;reload()&#39;,1000*timeout);
-count&#43;&#43;;
-console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动刷新,刷新次数：&#39;&#43;count);
-fr4me=&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;&#43;current&#43;&#39;\&#39;/&gt;&#39;;
-fr4me&#43;=&#39;&lt;/frameset&gt;&#39;;
-with(document){write(fr4me);void(close())};
-}
-
-
-https://blog.csdn.net/samt007/article/details/80014071
-" /><meta name="keywords" content='程序员' />
+<meta name="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动" /><meta name="keywords" content='程序员' />
   <meta itemprop="name" content="chrome浏览器网页刷新的console代码">
-  <meta itemprop="description" content=" 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动刷新,刷新次数：&#39;&#43;count); fr4me=&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;&#43;current&#43;&#39;\&#39;/&gt;&#39;; fr4me&#43;=&#39;&lt;/frameset&gt;&#39;; with(document){write(fr4me);void(close())}; } https://blog.csdn.net/samt007/article/details/80014071">
+  <meta itemprop="description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动">
   <meta itemprop="datePublished" content="2021-08-23T03:48:00+00:00">
   <meta itemprop="dateModified" content="2021-08-23T03:48:00+00:00">
   <meta itemprop="wordCount" content="98">
@@ -54,7 +17,7 @@ https://blog.csdn.net/samt007/article/details/80014071
   <meta itemprop="keywords" content="默认分类"><meta property="og:url" content="https://blog.amndi.cn/posts/18/">
   <meta property="og:site_name" content="自娱自乐">
   <meta property="og:title" content="chrome浏览器网页刷新的console代码">
-  <meta property="og:description" content=" 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动刷新,刷新次数：&#39;&#43;count); fr4me=&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;&#43;current&#43;&#39;\&#39;/&gt;&#39;; fr4me&#43;=&#39;&lt;/frameset&gt;&#39;; with(document){write(fr4me);void(close())}; } https://blog.csdn.net/samt007/article/details/80014071">
+  <meta property="og:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动">
   <meta property="og:locale" content="zh_CN">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
@@ -65,7 +28,7 @@ https://blog.csdn.net/samt007/article/details/80014071
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://blog.amndi.cn/logo.png">
   <meta name="twitter:title" content="chrome浏览器网页刷新的console代码">
-  <meta name="twitter:description" content=" 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动刷新,刷新次数：&#39;&#43;count); fr4me=&#39;&lt;frameset cols=\&#39;*\&#39;&gt;\n&lt;frame src=\&#39;&#39;&#43;current&#43;&#39;\&#39;/&gt;&#39;; fr4me&#43;=&#39;&lt;/frameset&gt;&#39;; with(document){write(fr4me);void(close())}; } https://blog.csdn.net/samt007/article/details/80014071">
+  <meta name="twitter:description" content="1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 timeout=prompt(&#34;Set timeout (Second):&#34;); count=0 current=location.href; if(timeout&gt;0) setTimeout(&#39;reload()&#39;,1000*timeout); else location.replace(current); function reload(){ setTimeout(&#39;reload()&#39;,1000*timeout); count&#43;&#43;; console.log(&#39;每（&#39;&#43;timeout&#43;&#39;）秒自动">
 <meta name="application-name" content="自娱自乐">
 <meta name="apple-mobile-web-app-title" content="自娱自乐"><meta name="theme-color" data-light="#f8f8f8" data-dark="#252627" content="#f8f8f8"><meta name="msapplication-TileColor" content="#da532c"><link rel="icon" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="https://blog.amndi.cn/posts/18/" /><link rel="prev" href="https://blog.amndi.cn/posts/17/" /><link rel="next" href="https://blog.amndi.cn/posts/js%E8%B7%B3%E5%87%BA%E5%BE%AA%E7%8E%AF%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95/" /><link rel="stylesheet" href="/css/style.min.b2bd4d858611125baac80d19ce6ea2eebaaa1adf6e7b55e72a6b209c21386a0b.css" integrity="sha256-sr1NhYYREluqyA0Zzm6i7rqqGt9ue1XnKmsgnCE4ags="><link rel="preload" href="/lib/fontawesome-free/all.min.0934b1fc0d3a766d41d3adf5e7a115875e66e98ebba408d965a41cf3d2cb4ab5.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="/lib/fontawesome-free/all.min.0934b1fc0d3a766d41d3adf5e7a115875e66e98ebba408d965a41cf3d2cb4ab5.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU="></noscript><link rel="preload" href="/lib/animate/animate.min.5fbaeb9f8e25d7e0143bae61d4b1802c16ce7390b96ceb2d498b0d96ff4c853f.css" integrity="sha256-X7rrn44l1+AUO65h1LGALBbOc5C5bOstSYsNlv9MhT8=" as="style" onload="this.removeAttribute('onload');this.rel='stylesheet'">
@@ -295,7 +258,7 @@ https://blog.csdn.net/samt007/article/details/80014071
         </noscript></div></article>
 
   <aside class="toc" id="toc-auto" aria-label="目录"></aside></main><footer class="footer">
-    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.135.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
+    <div class="footer-container"><div class="footer-line powered">由 <a href="https://gohugo.io/" target="_blank" rel="external nofollow noopener noreferrer" title="Hugo 0.128.0"><img class="hugo-icon" src="/images/hugo.min.svg" alt="Hugo logo" /> Hugo</a> 强力驱动 | 主题 - <a href="https://github.com/hugo-fixit/FixIt" target="_blank" rel="external" title="FixIt v0.3.8"><img class="fixit-icon" src="/images/fixit.min.svg" alt="FixIt logo" /> FixIt</a>
         </div><div class="footer-line copyright" itemscope itemtype="http://schema.org/CreativeWork"><i class="fa-regular fa-copyright fa-fw" aria-hidden="true"></i>
             <span itemprop="copyrightYear">2019 - 2024</span><span class="author" itemprop="copyrightHolder">
               <a href="/">admin</a></span><span class="license footer-divider"><a rel="license external nofollow noopener noreferrer" href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">CC BY-NC 4.0</a></span></div><div class="footer-line statistics"><span class="site-time" title='网站运行中……'><i class="fa-solid fa-heartbeat fa-fw animate-icon" aria-hidden="true"></i><span class="run-times ms-1">网站运行中……</span></span></div><div class="footer-line visitor">
