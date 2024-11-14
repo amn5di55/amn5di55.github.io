@@ -12,7 +12,7 @@
   <meta itemprop="description" content="自己发自己看">
   <meta itemprop="datePublished" content="2024-07-23T22:08:38+08:00">
   <meta itemprop="dateModified" content="2024-07-23T22:08:38+08:00">
-  <meta itemprop="wordCount" content="814">
+  <meta itemprop="wordCount" content="811">
   <meta itemprop="image" content="https://blog.amndi.cn/logo.png"><meta property="og:url" content="https://blog.amndi.cn/posts/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80/">
   <meta property="og:site_name" content="自娱自乐">
   <meta property="og:title" content="Js生成btc地址">
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/blog.amndi.cn\/posts\/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80\/"
-    },"image": ["https:\/\/blog.amndi.cn\/favicon.ico"],"genre": "posts","keywords": "","wordcount":  814 ,
+    },"image": ["https:\/\/blog.amndi.cn\/favicon.ico"],"genre": "posts","keywords": "","wordcount":  811 ,
     "url": "https:\/\/blog.amndi.cn\/posts\/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80\/","datePublished": "2024-07-23T22:08:38+08:00","dateModified": "2024-07-23T22:08:38+08:00","publisher": {
       "@type": "Organization",
       "name": "Leehow","logo": "https:\/\/blog.amndi.cn\/logo.png"},"author": {
@@ -151,7 +151,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Js生成btc地址</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      admin</span></span><span class="post-included-in">&nbsp;收录于  和 </span></div><div class="post-meta-line"><span title="发布于 2024-07-23 22:08:38"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-23">2024-07-23</time></span>&nbsp;<span title="814 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Js生成btc地址">
+      admin</span></span><span class="post-included-in">&nbsp;收录于  和 </span></div><div class="post-meta-line"><span title="发布于 2024-07-23 22:08:38"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-23">2024-07-23</time></span>&nbsp;<span title="811 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Js生成btc地址">
               <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
             </span>&nbsp;</div>
     </div><div class="content" id="content"><div class="details admonition note open">
@@ -306,13 +306,6 @@
 </span><span class="lnt">20
 </span><span class="lnt">21
 </span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
 </span></code></pre></td>
 <td class="lntd">
 <pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">bitcoin</span><span class="o">=</span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;bitcoinjs-lib&#39;</span><span class="p">);</span>
@@ -336,14 +329,21 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="o">//</span><span class="err">利用公钥生成地址</span>
 </span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="p">{</span> <span class="n">address</span> <span class="p">}</span><span class="o">=</span><span class="n">bitcoin</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">p2pkh</span><span class="p">({</span><span class="n">pubkey</span><span class="p">:</span><span class="n">keyPair</span><span class="o">.</span><span class="n">publicKey</span><span class="p">});</span>
-</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;address = &#39;</span><span class="o">+</span><span class="n">address</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="err">运行结果如下</span><span class="p">(</span><span class="err">这里是使用随机数生成的私钥，所以代码每次运行的结果都不一样</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">pri_key</span> <span class="o">=</span> <span class="mi">2</span><span class="n">b80a47ed30802b733a5573201f26a6c5285bd78fa1f9978706e7f8f00971f51</span>
-</span></span><span class="line"><span class="cl"><span class="n">pub_key</span> <span class="o">=</span> <span class="mi">02</span><span class="n">b7f35b0d82a37fa0dfff7139a4b3fab2a9e870ab1409a076529cfcc342aa6049</span>
-</span></span><span class="line"><span class="cl"><span class="n">WIF编码</span> <span class="o">=</span> <span class="mi">5</span><span class="n">J9So3m6eMZqgWKLjHe2AKUjc4sf4Mtum2ZYW83mo2vPcfcN8KA</span>
-</span></span><span class="line"><span class="cl"><span class="n">address</span> <span class="o">=</span> <span class="mi">1</span><span class="n">GmHrm4BFQCEG834aohqweeb8zvfuN8iMx</span></span></span></code></pre></td></tr></table>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;address = &#39;</span><span class="o">+</span><span class="n">address</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>运行结果如下(这里是使用随机数生成的私钥，所以代码每次运行的结果都不一样):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">pri_key = 2b80a47ed30802b733a5573201f26a6c5285bd78fa1f9978706e7f8f00971f51
+</span></span><span class="line"><span class="cl">pub_key = 02b7f35b0d82a37fa0dfff7139a4b3fab2a9e870ab1409a076529cfcc342aa6049
+</span></span><span class="line"><span class="cl">WIF编码 = 5J9So3m6eMZqgWKLjHe2AKUjc4sf4Mtum2ZYW83mo2vPcfcN8KA
+</span></span><span class="line"><span class="cl">address = 1GmHrm4BFQCEG834aohqweeb8zvfuN8iMx</span></span></code></pre></td></tr></table>
 </div>
 </div><blockquote>
 <p><a href="https://blog.csdn.net/yeshang_lady/article/details/123330595"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/yeshang_lady/article/details/123330595</a></p>
