@@ -12,7 +12,7 @@
   <meta itemprop="description" content="自己发自己看">
   <meta itemprop="datePublished" content="2024-07-23T22:08:38+08:00">
   <meta itemprop="dateModified" content="2024-07-23T22:08:38+08:00">
-  <meta itemprop="wordCount" content="752">
+  <meta itemprop="wordCount" content="814">
   <meta itemprop="image" content="https://blog.amndi.cn/logo.png"><meta property="og:url" content="https://blog.amndi.cn/posts/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80/">
   <meta property="og:site_name" content="自娱自乐">
   <meta property="og:title" content="Js生成btc地址">
@@ -40,7 +40,7 @@
     "mainEntityOfPage": {
       "@type": "WebPage",
       "@id": "https:\/\/blog.amndi.cn\/posts\/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80\/"
-    },"image": ["https:\/\/blog.amndi.cn\/favicon.ico"],"genre": "posts","keywords": "","wordcount":  752 ,
+    },"image": ["https:\/\/blog.amndi.cn\/favicon.ico"],"genre": "posts","keywords": "","wordcount":  814 ,
     "url": "https:\/\/blog.amndi.cn\/posts\/js%E7%94%9F%E6%88%90btc%E5%9C%B0%E5%9D%80\/","datePublished": "2024-07-23T22:08:38+08:00","dateModified": "2024-07-23T22:08:38+08:00","publisher": {
       "@type": "Organization",
       "name": "Leehow","logo": "https:\/\/blog.amndi.cn\/logo.png"},"author": {
@@ -151,7 +151,7 @@
     <div class="header"><h1 class="single-title animate__animated animate__flipInX"><span>Js生成btc地址</span>
       </h1></div><div class="post-meta">
       <div class="post-meta-line"><span class="post-author"><span class="author"><i class="fa-solid fa-user-circle" aria-hidden="true"></i>
-      admin</span></span><span class="post-included-in">&nbsp;收录于  和 </span></div><div class="post-meta-line"><span title="发布于 2024-07-23 22:08:38"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-23">2024-07-23</time></span>&nbsp;<span title="752 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 800 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Js生成btc地址">
+      admin</span></span><span class="post-included-in">&nbsp;收录于  和 </span></div><div class="post-meta-line"><span title="发布于 2024-07-23 22:08:38"><i class="fa-solid fa-calendar-days fa-fw me-1" aria-hidden="true"></i><time datetime="2024-07-23">2024-07-23</time></span>&nbsp;<span title="814 字"><i class="fa-solid fa-pencil-alt fa-fw me-1" aria-hidden="true"></i>约 900 字</span>&nbsp;<span><i class="fa-regular fa-clock fa-fw me-1" aria-hidden="true"></i>预计阅读 2 分钟</span>&nbsp;<span id="busuanzi_container_page_pv" class="busuanzi_visitors comment-visitors" data-flag-title="Js生成btc地址">
               <i class="fa-regular fa-eye fa-fw me-1" aria-hidden="true"></i><span id="busuanzi_value_page_pv">-</span>&nbsp;次阅读
             </span>&nbsp;</div>
     </div><div class="content" id="content"><div class="details admonition note open">
@@ -163,79 +163,189 @@
       </div>
     </div><p>bitcoin TapRoot 地址生成</p>
 <p>好久没有更新区块链的东西了，最近看brc20，用的都是btc的TapRoot地址。这次我们看看js如何生成TapRoot地址吧。</p>
-<p>依赖库
-const bitcoin = require(&lsquo;bitcoinjs-lib&rsquo;)
-const bip39 = require(&lsquo;bip39&rsquo;);
-const ecc = require(&rsquo;tiny-secp256k1&rsquo;);
-const { BIP32Factory } = require(&lsquo;bip32&rsquo;);
-初始化&amp;部分参数
-const network = bitcoin.networks.bitcoin // 主网
-const bip32 = BIP32Factory(ecc)
-bitcoin.initEccLib(ecc);
-大家玩这个好像都是用的BIP86，这里暂不研究，后续需要深入了解的时候再来看。
-回来了，强烈建议为P2TR公钥使用一个新的推导路径（例如由BIP86定义的），如果你在ECDSA和schnorr签名中使用相同的密钥，可能会被攻击。
-所以重点在于换一个推导路径。</p>
-<p>const rootKey = bip32.fromSeed(bip39.mnemonicToSeedSync(&lsquo;mnemonic&rsquo;))
-const path = &ldquo;m/86&rsquo;/0&rsquo;/0&rsquo;/0/0&rdquo;;
-const child = rootKey.derivePath(path);
-记录一下，之前的各种地址输出
-// address: 1&hellip;&hellip;
-console.log(bitcoin.payments.p2pkh({ pubkey: child.publicKey, network }).address);
-// address: bc1q&hellip;.
-console.log(bitcoin.payments.p2wpkh({ pubkey: child.publicKey }).address);
-// address: 3&hellip;&hellip;..
-console.log(bitcoin.payments.p2sh({ redeem: bitcoin.payments.p2wpkh({ pubkey: child.publicKey }), }).address);
-生成TapRoot地址</p>
-<p>方式一：直接使用bitcoin.payments.p2tr生成地址
-const address = bitcoin.payments.p2tr({ internalPubkey: child.publicKey.slice(1, 33), network }).address
-方式二：使用bitcoin.address.fromOutputScript生成地址
-function createKeySpendOutput(publicKey) {
-// x-only pubkey (remove 1 byte y parity)
-const myXOnlyPubkey = publicKey.slice(1, 33);
-const commitHash = bitcoin.crypto.taggedHash(&lsquo;TapTweak&rsquo;, myXOnlyPubkey);
-const tweakResult = ecc.xOnlyPointAddTweak(myXOnlyPubkey, commitHash);
-if (tweakResult === null) throw new Error(&lsquo;Invalid Tweak&rsquo;);
-const { xOnlyPubkey: tweaked } = tweakResult;
-// scriptPubkey
-return Buffer.concat([
-// witness v1, PUSH_DATA 32 bytes
-Buffer.from([0x51, 0x20]),
-// x-only tweaked pubkey
-tweaked,
-]);
-}</p>
-<blockquote>
+<p>依赖库</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">bitcoin</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;bitcoinjs-lib&#39;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">bip39</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;bip39&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ecc</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;tiny-secp256k1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="p">{</span> <span class="n">BIP32Factory</span> <span class="p">}</span> <span class="o">=</span> <span class="n">require</span><span class="p">(</span><span class="s1">&#39;bip32&#39;</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>初始化&amp;部分参数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">network</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">bitcoin</span> <span class="o">//</span> <span class="err">主网</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">bip32</span> <span class="o">=</span> <span class="n">BIP32Factory</span><span class="p">(</span><span class="n">ecc</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="n">bitcoin</span><span class="o">.</span><span class="n">initEccLib</span><span class="p">(</span><span class="n">ecc</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>大家玩这个好像都是用的BIP86，这里暂不研究，后续需要深入了解的时候再来看。</p>
+<p>回来了，强烈建议为P2TR公钥使用一个新的推导路径（例如由BIP86定义的），如果你在ECDSA和schnorr签名中使用相同的密钥，可能会被攻击。</p>
+<p>所以重点在于换一个推导路径。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">rootKey</span> <span class="o">=</span> <span class="n">bip32</span><span class="o">.</span><span class="n">fromSeed</span><span class="p">(</span><span class="n">bip39</span><span class="o">.</span><span class="n">mnemonicToSeedSync</span><span class="p">(</span><span class="s1">&#39;mnemonic&#39;</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">path</span> <span class="o">=</span> <span class="s2">&#34;m/86&#39;/0&#39;/0&#39;/0/0&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">child</span> <span class="o">=</span> <span class="n">rootKey</span><span class="o">.</span><span class="n">derivePath</span><span class="p">(</span><span class="n">path</span><span class="p">);</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>记录一下，之前的各种地址输出</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">// address: 1......
+</span></span><span class="line"><span class="cl">console.log(bitcoin.payments.p2pkh({ pubkey: child.publicKey, network }).address);
+</span></span><span class="line"><span class="cl">// address: bc1q....
+</span></span><span class="line"><span class="cl">console.log(bitcoin.payments.p2wpkh({ pubkey: child.publicKey }).address);
+</span></span><span class="line"><span class="cl">// address: 3........
+</span></span><span class="line"><span class="cl">console.log(bitcoin.payments.p2sh({ redeem: bitcoin.payments.p2wpkh({ pubkey: child.publicKey }), }).address);</span></span></code></pre></td></tr></table>
+</div>
+</div><p>生成TapRoot地址</p>
+<p>方式一：直接使用bitcoin.payments.p2tr生成地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">address</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">p2tr</span><span class="p">({</span> <span class="n">internalPubkey</span><span class="p">:</span> <span class="n">child</span><span class="o">.</span><span class="n">publicKey</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">33</span><span class="p">),</span> <span class="n">network</span> <span class="p">})</span><span class="o">.</span><span class="n">address</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>方式二：使用bitcoin.address.fromOutputScript生成地址</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="n">function</span> <span class="n">createKeySpendOutput</span><span class="p">(</span><span class="n">publicKey</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="n">x</span><span class="o">-</span><span class="n">only</span> <span class="n">pubkey</span> <span class="p">(</span><span class="n">remove</span> <span class="mi">1</span> <span class="n">byte</span> <span class="n">y</span> <span class="n">parity</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">myXOnlyPubkey</span> <span class="o">=</span> <span class="n">publicKey</span><span class="o">.</span><span class="n">slice</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">33</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">commitHash</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">crypto</span><span class="o">.</span><span class="n">taggedHash</span><span class="p">(</span><span class="s1">&#39;TapTweak&#39;</span><span class="p">,</span> <span class="n">myXOnlyPubkey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="n">tweakResult</span> <span class="o">=</span> <span class="n">ecc</span><span class="o">.</span><span class="n">xOnlyPointAddTweak</span><span class="p">(</span><span class="n">myXOnlyPubkey</span><span class="p">,</span> <span class="n">commitHash</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">tweakResult</span> <span class="o">===</span> <span class="n">null</span><span class="p">)</span> <span class="n">throw</span> <span class="n">new</span> <span class="n">Error</span><span class="p">(</span><span class="s1">&#39;Invalid Tweak&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">    <span class="k">const</span> <span class="p">{</span> <span class="n">xOnlyPubkey</span><span class="p">:</span> <span class="n">tweaked</span> <span class="p">}</span> <span class="o">=</span> <span class="n">tweakResult</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="o">//</span> <span class="n">scriptPubkey</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">Buffer</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span>
+</span></span><span class="line"><span class="cl">        <span class="o">//</span> <span class="n">witness</span> <span class="n">v1</span><span class="p">,</span> <span class="n">PUSH_DATA</span> <span class="mi">32</span> <span class="n">bytes</span>
+</span></span><span class="line"><span class="cl">        <span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">([</span><span class="mh">0x51</span><span class="p">,</span> <span class="mh">0x20</span><span class="p">]),</span>
+</span></span><span class="line"><span class="cl">        <span class="o">//</span> <span class="n">x</span><span class="o">-</span><span class="n">only</span> <span class="n">tweaked</span> <span class="n">pubkey</span>
+</span></span><span class="line"><span class="cl">        <span class="n">tweaked</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="p">]);</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><a href="http://blog.shengchao.top/article/32"target="_blank" rel="external nofollow noopener noreferrer">http://blog.shengchao.top/article/32</a></p>
 </blockquote>
-<p>const output = createKeySpendOutput(child.publicKey);
-const address = bitcoin.address.fromOutputScript(output, network);
-console.log({address});
-OK，这样你就得到了一个TapRoot地址，地址是以bc1p开头。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">output</span> <span class="o">=</span> <span class="n">createKeySpendOutput</span><span class="p">(</span><span class="n">child</span><span class="o">.</span><span class="n">publicKey</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">address</span> <span class="o">=</span> <span class="n">bitcoin</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">fromOutputScript</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">network</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">({</span><span class="n">address</span><span class="p">});</span></span></span></code></pre></td></tr></table>
+</div>
+</div><p>OK，这样你就得到了一个TapRoot地址，地址是以bc1p开头。</p>
 <p>目前网上很多生成区块链私钥、公钥等的代码都是基于bitcoinjs-lib@3版本实现的，现在bitcoinjs-lib已经更新到了@6.0.1版本。原先的代码已经不可用了。下面是基于bitcoinjs-lib@6.0.1的代码：</p>
-<p>const bitcoin=require(&lsquo;bitcoinjs-lib&rsquo;);
-const TestNet=bitcoin.networks.testnet;
-const ecpair=require(&rsquo;ecpair&rsquo;);
-const ecc=require(&rsquo;tiny-secp256k1&rsquo;);
-const ECPair=ecpair.ECPairFactory(ecc);</p>
-<p>let keyPair=ECPair.makeRandom({network:TestNet});</p>
-<p>//16进制表示的私钥和公钥
-var private_key=keyPair.privateKey.toString(&lsquo;hex&rsquo;);
-var public_key=keyPair.publicKey.toString(&lsquo;hex&rsquo;);
-console.log(&lsquo;pri_key = &lsquo;+private_key);
-console.log(&lsquo;pub_key = &lsquo;+public_key);</p>
-<p>//WIF编码
-const wif=require(&lsquo;wif&rsquo;);
-var encoded=wif.encode(0x80,Buffer.from(private_key,&lsquo;hex&rsquo;),false);
-console.log(&lsquo;WIF编码 = &lsquo;+encoded);</p>
-<p>//利用公钥生成地址
-const { address }=bitcoin.payments.p2pkh({pubkey:keyPair.publicKey});
-console.log(&lsquo;address = &lsquo;+address);</p>
-<p>运行结果如下(这里是使用随机数生成的私钥，所以代码每次运行的结果都不一样):</p>
-<p>pri_key = 2b80a47ed30802b733a5573201f26a6c5285bd78fa1f9978706e7f8f00971f51
-pub_key = 02b7f35b0d82a37fa0dfff7139a4b3fab2a9e870ab1409a076529cfcc342aa6049
-WIF编码 = 5J9So3m6eMZqgWKLjHe2AKUjc4sf4Mtum2ZYW83mo2vPcfcN8KA
-address = 1GmHrm4BFQCEG834aohqweeb8zvfuN8iMx</p>
-<blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-gdscript3" data-lang="gdscript3"><span class="line"><span class="cl"><span class="k">const</span> <span class="n">bitcoin</span><span class="o">=</span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;bitcoinjs-lib&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">TestNet</span><span class="o">=</span><span class="n">bitcoin</span><span class="o">.</span><span class="n">networks</span><span class="o">.</span><span class="n">testnet</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ecpair</span><span class="o">=</span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;ecpair&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ecc</span><span class="o">=</span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;tiny-secp256k1&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">ECPair</span><span class="o">=</span><span class="n">ecpair</span><span class="o">.</span><span class="n">ECPairFactory</span><span class="p">(</span><span class="n">ecc</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">let</span> <span class="n">keyPair</span><span class="o">=</span><span class="n">ECPair</span><span class="o">.</span><span class="n">makeRandom</span><span class="p">({</span><span class="n">network</span><span class="p">:</span><span class="n">TestNet</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">//</span><span class="mi">16</span><span class="err">进制表示的私钥和公钥</span>
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">private_key</span><span class="o">=</span><span class="n">keyPair</span><span class="o">.</span><span class="n">privateKey</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">public_key</span><span class="o">=</span><span class="n">keyPair</span><span class="o">.</span><span class="n">publicKey</span><span class="o">.</span><span class="n">toString</span><span class="p">(</span><span class="s1">&#39;hex&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;pri_key = &#39;</span><span class="o">+</span><span class="n">private_key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;pub_key = &#39;</span><span class="o">+</span><span class="n">public_key</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">//</span><span class="n">WIF编码</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="n">wif</span><span class="o">=</span><span class="n">require</span><span class="p">(</span><span class="s1">&#39;wif&#39;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="k">var</span> <span class="n">encoded</span><span class="o">=</span><span class="n">wif</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="mh">0x80</span><span class="p">,</span><span class="n">Buffer</span><span class="o">.</span><span class="n">from</span><span class="p">(</span><span class="n">private_key</span><span class="p">,</span><span class="s1">&#39;hex&#39;</span><span class="p">),</span><span class="bp">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;WIF编码 = &#39;</span><span class="o">+</span><span class="n">encoded</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="o">//</span><span class="err">利用公钥生成地址</span>
+</span></span><span class="line"><span class="cl"><span class="k">const</span> <span class="p">{</span> <span class="n">address</span> <span class="p">}</span><span class="o">=</span><span class="n">bitcoin</span><span class="o">.</span><span class="n">payments</span><span class="o">.</span><span class="n">p2pkh</span><span class="p">({</span><span class="n">pubkey</span><span class="p">:</span><span class="n">keyPair</span><span class="o">.</span><span class="n">publicKey</span><span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="n">console</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="s1">&#39;address = &#39;</span><span class="o">+</span><span class="n">address</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="err">运行结果如下</span><span class="p">(</span><span class="err">这里是使用随机数生成的私钥，所以代码每次运行的结果都不一样</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">pri_key</span> <span class="o">=</span> <span class="mi">2</span><span class="n">b80a47ed30802b733a5573201f26a6c5285bd78fa1f9978706e7f8f00971f51</span>
+</span></span><span class="line"><span class="cl"><span class="n">pub_key</span> <span class="o">=</span> <span class="mi">02</span><span class="n">b7f35b0d82a37fa0dfff7139a4b3fab2a9e870ab1409a076529cfcc342aa6049</span>
+</span></span><span class="line"><span class="cl"><span class="n">WIF编码</span> <span class="o">=</span> <span class="mi">5</span><span class="n">J9So3m6eMZqgWKLjHe2AKUjc4sf4Mtum2ZYW83mo2vPcfcN8KA</span>
+</span></span><span class="line"><span class="cl"><span class="n">address</span> <span class="o">=</span> <span class="mi">1</span><span class="n">GmHrm4BFQCEG834aohqweeb8zvfuN8iMx</span></span></span></code></pre></td></tr></table>
+</div>
+</div><blockquote>
 <p><a href="https://blog.csdn.net/yeshang_lady/article/details/123330595"target="_blank" rel="external nofollow noopener noreferrer">https://blog.csdn.net/yeshang_lady/article/details/123330595</a></p>
 </blockquote></div><div class="post-footer" id="post-footer">
   <div class="post-info">
